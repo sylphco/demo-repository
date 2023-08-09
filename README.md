@@ -7,3 +7,11 @@ This code repository (or "repo") is designed to demonstrate the best GitHub has 
 
 The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
 This is a test.
+
+# Contributor Build Instructions:
+- Fork this repo, clone down and set this repo to upstream.
+- Get all branches and changes by fetching and pulling all branches.
+- To build the application use `docker build -t <buildname> .`. This should install all requirements specified in
+    requirements.txt, setup the environment specified in the Dockerfile and build the Container specified in the docker
+    compose file.
+
