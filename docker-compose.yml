@@ -6,9 +6,16 @@ services:
     ports:
       - "8080:8080"
   db:
-    image: "postgresql"
+    image: "postgres"
     environment:
-      - name=value
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+    ports:
+          - "5438:5432"
     volumes:
       - db-data:/demo
 
