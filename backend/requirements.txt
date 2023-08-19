@@ -4,4 +4,3 @@ websockets
 psycopg2-binary
 python-socketio
 sqlalchemy
-pytest

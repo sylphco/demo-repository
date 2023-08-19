@@ -10,11 +10,11 @@ ENV PATH="$VIRTAUL_ENV/bin:$PATH"
 WORKDIR /build/app
 
 # copy dependency definitions from root context into build image ./build/app
-COPY ../requirements.txt .
+COPY ../dev-requirements.txt .
 
 
 # install dependencies WORKDIR
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r dev-requirements.txt
 
 # copy source files into build files
 COPY ../app/ .
