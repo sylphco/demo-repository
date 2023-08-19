@@ -1,0 +1,6 @@
+uvicorn
+fastapi
+websockets
+psycopg2-binary
+python-socketio
+sqlalchemy

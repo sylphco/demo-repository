@@ -1,15 +1,13 @@
 # this is where we can add the sql db information. 
 version: '3'
 services:
-  web:
-    build: .
-    ports:
-      - "8080:8080"
+
   db:
     image: "postgres"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test_db
     logging:
           options:
             max-size: 10m
@@ -19,5 +17,15 @@ services:
     volumes:
       - db-data:/demo
 
+  backend:
+    build:
+      context: backend
+      dockerfile: ./backend.dockerfile
+    ports:
+      - "8765:8765"
+    depends_on: 
+      - db
+
 volumes:
   db-data:
+
