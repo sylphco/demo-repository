@@ -1,4 +1,4 @@
-# this is where we can add the sql db information. 
+# this is where we can add the sql db information.
 version: '3'
 services:
 
@@ -18,14 +18,16 @@ services:
       - db-data:/demo
 
   backend:
+    command: uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
     build:
       context: backend
       dockerfile: ./backend.dockerfile
+    volumes:
+      - ./backend/app:/build/app
     ports:
-      - "8765:8765"
-    depends_on: 
+      - 8765:80
+    depends_on:
       - db
 
 volumes:
   db-data:
-
