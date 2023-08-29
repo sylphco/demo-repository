@@ -25,7 +25,7 @@ services:
     volumes:
       - ./backend/app:/build/app
     ports:
-      - 8765:80
+      - 8000:80
     depends_on:
       - db
 
