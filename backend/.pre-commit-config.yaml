@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.4.0
     hooks:
       - id: check-docstring-first
       - id: check-merge-conflict
@@ -9,13 +9,6 @@ repos:
       - id: check-yaml
       - id: check-ast
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 23.7.0
     hooks:
       - id: black
-  - repo: local
-    hooks:
-      - id: pylint
-        name: pylint
-        entry: pylint
-        language: python
-        types: [python]

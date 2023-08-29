@@ -2,24 +2,21 @@
 FROM python:3.10-slim
 
 # Create Virtual Environment
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTAUL_ENV/bin:$PATH"
-
 # establishg working directory for image
-WORKDIR /build/app
+WORKDIR /build
 
 # copy dependency definitions from root context into build image ./build/app
-COPY ../dev-requirements.txt .
+COPY dev-requirements.txt /build
+COPY requirements.txt /build
 
 
 # install dependencies WORKDIR
 RUN pip install --no-cache-dir -r dev-requirements.txt
 
 # copy source files into build files
-COPY ../app/ .
+COPY app /build/app
 
 # Expose Port in Container
-EXPOSE 8765
+EXPOSE 80
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8765", "--reload"]
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8765", "--reload"]
